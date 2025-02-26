@@ -4,7 +4,7 @@ package com.example.SpringMessageApp.controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/messages")  // Base URL for the message endpoints
+@RequestMapping("/api/messages")
 public class MessageController {
 
     private String message = "Hello from BridgeLabz";  // Example message
@@ -15,9 +15,9 @@ public class MessageController {
         return message;
     }
 
-    // GET request to greet with a custom message by accepting a query parameter 'name'
-    @GetMapping("/query")
-    public String greetUser(@RequestParam String name) {
+    // GET request to greet with a custom message by accepting a path variable 'name'
+    @GetMapping("/param/{name}")
+    public String greetUser(@PathVariable String name) {
         return "Hello " + name + " from BridgeLabz";
     }
 
