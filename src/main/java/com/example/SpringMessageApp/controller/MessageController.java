@@ -41,8 +41,8 @@ public class MessageController {
         return "Message with ID " + id + " deleted.";
     }
 
-    @PostMapping("/post")
-    public String greetUser(@RequestBody UserDTO userDTO) {
-        return "Hello " + userDTO.getFirstName() + " " + userDTO.getLastName() + " from BridgeLabz";
+    @PutMapping("/put/{firstName}")
+    public String greetUser(@PathVariable String firstName, @RequestParam String lastName) {
+        return "Hello " + firstName + " " + lastName + " from BridgeLabz";
     }
 }
