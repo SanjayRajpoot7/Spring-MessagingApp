@@ -1,6 +1,7 @@
 package com.example.SpringMessageApp.controller;
 
 
+import com.example.SpringMessageApp.dto.UserDTO;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -14,6 +15,11 @@ public class MessageController {
     public String sayHello() {
         return message;
     }
+
+//    @GetMapping("/hello")
+//    public ResponseEntity<String> sayHello() {
+//        return ResponseEntity.ok(message);
+//    }
 
     // GET request to greet with a custom message by accepting a path variable 'name'
     @GetMapping("/param/{name}")
@@ -33,5 +39,10 @@ public class MessageController {
     public String deleteMessage(@PathVariable int id) {
         // Simulating a resource deletion
         return "Message with ID " + id + " deleted.";
+    }
+
+    @PostMapping("/post")
+    public String greetUser(@RequestBody UserDTO userDTO) {
+        return "Hello " + userDTO.getFirstName() + " " + userDTO.getLastName() + " from BridgeLabz";
     }
 }
