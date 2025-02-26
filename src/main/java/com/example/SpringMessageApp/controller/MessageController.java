@@ -15,10 +15,10 @@ public class MessageController {
         return message;
     }
 
-    // POST request to greet with a custom message (using @RequestBody for POST body)
-    @PostMapping("/greet")
-    public String greetUser(@RequestBody String name) {
-        return "Hello, " + name;
+    // GET request to greet with a custom message by accepting a query parameter 'name'
+    @GetMapping("/query")
+    public String greetUser(@RequestParam String name) {
+        return "Hello " + name + " from BridgeLabz";
     }
 
     // PUT request for /update/{id}
